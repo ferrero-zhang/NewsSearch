@@ -14,7 +14,7 @@ from scrapy import log
 class NewsScrapyPipeline(object):
     #Connect to the MongoDB database
     def __init__(self):
-        connection = pymongo.Connection(settings['MONGODB_SERVER'], settings['MONGODB_PORT'])
+        connection = pymongo.MongoClient(settings['MONGODB_SERVER'], settings['MONGODB_PORT'])
         db = connection[settings['MONGODB_DB']]
         self.collection = db[settings['MONGODB_COLLECTION']]
 
