@@ -57,27 +57,33 @@ class NetEaseSpider(CrawlSpider):
     def parse_item_yield(self,response):
         if response.url not in SAVED_URL:
             SAVED_URL.add(response.url)
-            soup = BeautifulSoup(response.body)
+            try:
+                response_body = response.body.decode("gbk")
+            except:
+                response_body = response.body.decode("utf-8")
+                #response_body = response.body.decode("gb2312")
+            soup = BeautifulSoup(response_body)
             news_item = NewsScrapyItem()
+            news_item["news_url"] = response.url
             news_item["news_title"] = u"网易新闻"
             if type(soup.find("title")) != types.NoneType:
-                news_item["news_title"] = soup.find("title").string
+                news_item["news_title"] = soup.find("title").text
             new_date_list = soup.findAll("div",{"class":["ep-time-soure cDGray","pub_time"]}) 
             news_date_re = re.findall(r"\d{2}/\d{4}/\d{2}",response.url)[0].split("/")
             news_item["news_date"] = "20" + news_date_re[0] + "-" + news_date_re[1][:2] + "-" + news_date_re[1][-2:] + " " + news_date_re[2]
             if len(new_date_list) != 0:
-                news_item["news_date"] = new_date_list[0].string[:19]
+                news_item["news_date"] = new_date_list[0].text[:19]
             tmp_news_source = soup.find("a",{"id":"ne_article_source"})
             if tmp_news_source != None:
-                news_item["news_source"] = tmp_news_source.string
+                news_item["news_source"] = tmp_news_source.text
             else:
                 news_item["news_source"] = "NetEase"
             data = soup.findAll("div",{"id":"endText"})[0]
             data_list = data.findAll("p",{"class":""})
             contents = ""
             for item in data_list:
-                if type(item.string) != types.NoneType:
-                    test = item.string.encode("utf-8")
+                if type(item.text) != types.NoneType:
+                    test = item.text
                     contents = contents + test
             news_item["news_content"] = contents
             key_map = {}

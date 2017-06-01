@@ -45,7 +45,7 @@ class FilePipeline(object):
     #Connect to the MongoDB database
     def __init__(self):
         self.fname = "news.json"
-        self.fo = open(self.fname, "a")
+        self.fo = open(self.fname, 'a')
 
     def process_item(self, item, spider):
         valid = True
@@ -56,6 +56,7 @@ class FilePipeline(object):
         
         if valid:
             new_moive=[{
+                "news_url": item["news_url"],
                 "news_date":item['news_date'],
                 "news_title":item['news_title'],
                 "news_source":item['news_source'],
