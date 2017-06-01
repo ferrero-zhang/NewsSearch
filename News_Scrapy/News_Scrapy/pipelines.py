@@ -6,6 +6,7 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import pymongo
+import json
 
 from scrapy.exceptions import DropItem
 from scrapy.conf import settings
@@ -40,3 +41,28 @@ class NewsScrapyPipeline(object):
                 level=log.DEBUG, spider=spider) 
         return item
 
+class FilePipeline(object):
+    #Connect to the MongoDB database
+    def __init__(self):
+        self.fname = "news.json"
+        self.fo = open(self.fname, "a")
+
+    def process_item(self, item, spider):
+        valid = True
+        for data in item:
+          if not data:
+            valid = False
+            raise DropItem("Missing %s of blogpost from %s" %(data, item['url']))
+        
+        if valid:
+            new_moive=[{
+                "news_date":item['news_date'],
+                "news_title":item['news_title'],
+                "news_source":item['news_source'],
+                "news_content":item['news_content'],
+                "news_key":item['news_key']
+            }]
+            self.fo.write("%s\n" % json.dumps(new_moive[0]))
+            log.msg("Item wrote to file %s" % (self.fname),
+                level=log.DEBUG, spider=spider) 
+        return item
