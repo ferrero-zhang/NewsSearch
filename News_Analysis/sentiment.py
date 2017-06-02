@@ -27,7 +27,7 @@ if __name__ == '__main__':
     news_items = []
     f = open("./sentiment/sentiment_input.txt")
     for line in f:
-    	item = dict()
+        item = dict()
         data = line.strip().split("datetextsplit")
         date = data[0]
         text = data[1].decode("utf-8")
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     # 参考http://polyglot.readthedocs.io/en/latest/Sentiment.html#entity-sentiment进行entity level sentiment的提取
     fw1 = open("./sentiment/entity_sentiment_detail.txt", "w")
     for news in news_items:
-    	# get each document
+        # get each document
         text = news["text"]
         date = news["news_date"]
         text = Text(text)
@@ -56,7 +56,7 @@ if __name__ == '__main__':
                 if len(entities) > 0:
                     fw1.write("\n%s\n" % sent)
             except:
-            	continue
+                continue
             for entity in entities:
                 try:
                     entity_type = entity.tag
@@ -73,7 +73,7 @@ if __name__ == '__main__':
                 try:
                     entity_sentiment_dict[entity_type + entity_name].append([date, entity_pos, entity_neg])
                 except KeyError:
-                	entity_sentiment_dict[entity_type + entity_name] = [[date, entity_pos, entity_neg]]
+                    entity_sentiment_dict[entity_type + entity_name] = [[date, entity_pos, entity_neg]]
 
     fw1.close()
 
@@ -82,23 +82,23 @@ if __name__ == '__main__':
 
     fw = open("./sentiment/entity_sentiment.txt", "w")
     for ent, sent in entity_sentiment_dict.iteritems():
-    	if ent == target_entity:
-    		vis_data = sent
-    	fw.write("%s\t%s\n" % (ent, sent))
+        if ent == target_entity:
+            vis_data = sent
+        fw.write("%s\t%s\n" % (ent, sent))
     fw.close()
     
     # 合并相同的日期
     vis_data_dict = dict()
     for d in vis_data:
-    	try:
+        try:
             vis_data_dict[d[0]].append([d[1], d[2]])
         except KeyError:
-        	vis_data_dict[d[0]] = [[d[1], d[2]]]
+            vis_data_dict[d[0]] = [[d[1], d[2]]]
 
     vis_data_final = []
     for k, v in vis_data_dict.iteritems():
-    	finalv = [k]
-    	for v_ in zip(*v):
+        finalv = [k]
+        for v_ in zip(*v):
             finalv.append(float(sum(v_)) / len(v_))
         vis_data_final.append(finalv)
 
