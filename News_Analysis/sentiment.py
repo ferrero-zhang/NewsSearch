@@ -99,7 +99,7 @@ if __name__ == '__main__':
     for k, v in vis_data_dict.iteritems():
         finalv = [k]
         for v_ in zip(*v):
-            finalv.append(float(sum(v_)) / len(v_))
+            finalv.append(float(sum(v_)))
         vis_data_final.append(finalv)
 
     sorted_data = sorted(vis_data_final, key=lambda (k1, k2, k3): k1, reverse=False)

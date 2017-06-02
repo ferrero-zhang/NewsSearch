@@ -1,0 +1,5 @@
+*.pyc
+install/*.whl
+install/*.exe
+install/*.msi
+install/*.zip

@@ -19,7 +19,16 @@ except:
 AB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), './')
 # CLUSTERING_CLUTO_EXECUTE_PATH = os.path.join(AB_PATH, './cluto-2.1.2/Linux-x86_64/vcluster')
 
-CLUSTERING_CLUTO_EXECUTE_PATH = os.path.join(AB_PATH, './cluto-2.1.2/MSWIN-x86_64/vcluster.exe')
+def Is64Windows():
+    return 'PROGRAMFILES(X86)' in os.environ
+
+is64bit = Is64Windows()
+if is64bit:
+    print "64bit-------------------"
+    CLUSTERING_CLUTO_EXECUTE_PATH = os.path.join(AB_PATH, './cluto-2.1.2/MSWIN-x86_64/vcluster.exe')
+else:
+    print "32bit-------------------"
+    CLUSTERING_CLUTO_EXECUTE_PATH = os.path.join(AB_PATH, './cluto-2.1.2/MSWIN-x86/vcluster.exe')
 
 # 名词集合
 NOUNSET = set(['n', 'nr', 'nr1', 'nr2', 'nrj', 'nrf', 'ns', 'nsf', 'nt', 'nz', 'nl', 'ng'])
@@ -154,7 +163,7 @@ def process_for_cluto(inputs, cluto_input_filepath=None, ifreserveNoun=IF_NOUN, 
     # Save this Dictionary to a text file, in format: id[TAB]word_utf8[TAB]document frequency[NEWLINE]. 
     # Sorted by word, or by decreasing word frequency.
     dictionary.save_as_text(os.path.join(CLUTO_INPUT_FOLDER, "feature_dict.txt"))
-    print "特征词集合大小为： ", len(dictionary)
+    print u"特征词集合大小为： ", len(dictionary)
 
     corpus = [dictionary.doc2bow(words) for words in words_list]
 
@@ -276,7 +285,7 @@ def freq_word(docs, topk):
 if __name__ == '__main__':
     # 加载数据
     from preprocess import final_input as news_items
-    print "新闻总条数： ", len(news_items) 
+    print u"新闻总条数： ", len(news_items) 
 
     # 对新闻进行聚类
     documents = kmeans_clustering(news_items, CLUSTER_NUM)

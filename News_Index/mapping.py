@@ -2,10 +2,8 @@
 
 from elasticsearch import Elasticsearch
 
-#es = Elasticsearch("127.0.0.1:9200", timeout=600)
-es = Elasticsearch("219.224.134.216:9202", timeout=600)
-
-
+es = Elasticsearch("127.0.0.1:9200", timeout=600)
+# es = Elasticsearch("219.224.134.216:9202", timeout=600)
 
 def create_mapping(index_name):
     index_info = {
