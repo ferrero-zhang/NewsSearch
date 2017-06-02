@@ -1,39 +1,39 @@
-ÏÈÆÚ×¼±¸£º
-E.SÊı¾İ¿âµÄ°²×°Ê¹ÓÃÒÀÀµÓÚJava£¬ËùÒÔ×¼±¸µÄÄÚÈİ°üÀ¨£º
-E.S°²×°°ü£ºÏÂÔØzipÎÄ¼ş°ü£¬https://www.elastic.co/downloads/past-releases/elasticsearch-2-3-3£»
-E.SµÄPython½Ó¿Ú£ºpip install elasticsearch£¬https://pypi.python.org/pypi/elasticsearch/5.4.0£»
-Java£ºÒªÇó1.8£¬ÔÚOracle¹ÙÍøÏÂÔØ°²×°¼´¿É£¬½Ì³Ì°Ù¶ÈÀïÓĞ£¬ĞèÒªÅäÖÃjava_homeºÍpathµÄÏµÍ³±äÁ¿£»
-head²å¼ş£ºÊı¾İ¿â¿ÉÊÓ»¯²å¼ş¡£
+ï»¿å…ˆæœŸå‡†å¤‡ï¼š
+E.Sæ•°æ®åº“çš„å®‰è£…ä½¿ç”¨ä¾èµ–äºJavaï¼Œæ‰€ä»¥å‡†å¤‡çš„å†…å®¹åŒ…æ‹¬ï¼š
+E.Så®‰è£…åŒ…ï¼šä¸‹è½½zipæ–‡ä»¶åŒ…ï¼Œhttps://www.elastic.co/downloads/past-releases/elasticsearch-2-3-3ï¼›
+E.Sçš„Pythonæ¥å£ï¼špip install elasticsearchï¼Œhttps://pypi.python.org/pypi/elasticsearch/5.4.0ï¼›
+Javaï¼šè¦æ±‚1.8ï¼Œåœ¨Oracleå®˜ç½‘ä¸‹è½½å®‰è£…å³å¯ï¼Œæ•™ç¨‹ç™¾åº¦é‡Œæœ‰ï¼Œéœ€è¦é…ç½®java_homeå’Œpathçš„ç³»ç»Ÿå˜é‡ï¼›
+headæ’ä»¶ï¼šæ•°æ®åº“å¯è§†åŒ–æ’ä»¶ã€‚
 
-°²×°Á÷³Ì£º
-1¡¢	¼ì²âJava°æ±¾
-ÔÚcmdÀïÊäÈë java ¨Cversion£¬³öÏÖÏàÓ¦ĞÅÏ¢¼´¿É£¬Í¼ÖĞJava°æ±¾Îª1.8.
+å®‰è£…æµç¨‹ï¼š
+1ã€	æ£€æµ‹Javaç‰ˆæœ¬
+åœ¨cmdé‡Œè¾“å…¥ java â€“versionï¼Œå‡ºç°ç›¸åº”ä¿¡æ¯å³å¯ï¼Œå›¾ä¸­Javaç‰ˆæœ¬ä¸º1.8.
  
 
-2. ½âÑ¹elasticsearchÊı¾İ¿âµ½ÈÎºÎÒ»¸öÂ·¾¶
+2. è§£å‹elasticsearchæ•°æ®åº“åˆ°ä»»ä½•ä¸€ä¸ªè·¯å¾„
 
-3. ĞŞ¸ÄconfigÎÄ¼ş
-½øÈëelasticsearch-2.3.3/configÀï£¬ĞŞ¸Äelasticsearch.ymlÎÄ¼ş
-cluster.name: ¼¯ÈºÃû³Æ£¬¿ÉĞŞ¸ÄÎªÈÎÒâÓ¢ÎÄÃû³Æ
-node.name£ºµ±Ç°½ÚµãÃû³Æ£¬¿ÉĞŞ¸ÄÎªÈÎÒâÓ¢ÎÄÃû³Æ
+3. ä¿®æ”¹configæ–‡ä»¶
+è¿›å…¥elasticsearch-2.3.3/configé‡Œï¼Œä¿®æ”¹elasticsearch.ymlæ–‡ä»¶
+cluster.name: é›†ç¾¤åç§°ï¼Œå¯ä¿®æ”¹ä¸ºä»»æ„è‹±æ–‡åç§°
+node.nameï¼šå½“å‰èŠ‚ç‚¹åç§°ï¼Œå¯ä¿®æ”¹ä¸ºä»»æ„è‹±æ–‡åç§°
 bootstrap.mlockall: true 
 network.host: 127.0.0.1
 http.port: 9200
 discovery.zen.minimum_master_nodes: 1
 
-ĞŞ¸Ä±£´æºóÍË³ö¡£
+ä¿®æ”¹ä¿å­˜åé€€å‡ºã€‚
 
-4. Æô¶¯E.SÊı¾İ¿â
-½øÈëelasticsearch-2.3.3/binÖĞ£¬Ö´ĞĞelasticsearch.batÎÄ¼ş£¬Æô¶¯E.S¡£ÈçÍ¼ËùÊ¾¡£
+4. å¯åŠ¨E.Sæ•°æ®åº“
+è¿›å…¥elasticsearch-2.3.3/binä¸­ï¼Œæ‰§è¡Œelasticsearch.batæ–‡ä»¶ï¼Œå¯åŠ¨E.Sã€‚å¦‚å›¾æ‰€ç¤ºã€‚
  
 
-´ò¿ªä¯ÀÀÆ÷£¬ÊäÈë http://localhost:9200£¬³öÏÖÒÔÏÂÒ³Ãæ¼´¿É¡£
+æ‰“å¼€æµè§ˆå™¨ï¼Œè¾“å…¥ http://localhost:9200ï¼Œå‡ºç°ä»¥ä¸‹é¡µé¢å³å¯ã€‚
  
-5£®°²×°E.SµÄÍ¼ĞÎ»¯½çÃæ
-´ò¿ªWindowsµÄcmdÃüÁîĞĞ´°¿Ú£¬½øÈëelasticsearch-2.3.3/binÂ·¾¶ÏÂ£¬Ö´ĞĞplugin install mobz/elasticsearch-head£¬³öÏÖÈçÏÂËùÊ¾¡£
- 
-
-ÔÚä¯ÀÀÆ÷ÖĞÊäÈëÍøÖ·£ºhttp://localhost:9200/_plugin/head
+5ï¼å®‰è£…E.Sçš„å›¾å½¢åŒ–ç•Œé¢
+æ‰“å¼€Windowsçš„cmdå‘½ä»¤è¡Œçª—å£ï¼Œè¿›å…¥elasticsearch-2.3.3/binè·¯å¾„ä¸‹ï¼Œæ‰§è¡Œplugin install mobz/elasticsearch-headï¼Œå‡ºç°å¦‚ä¸‹æ‰€ç¤ºã€‚
  
 
-Èç´Ë£¬Íê³ÉE.SÊı¾İÇøÔÚwindowsÉÏµÄÆô¶¯¡£
+åœ¨æµè§ˆå™¨ä¸­è¾“å…¥ç½‘å€ï¼šhttp://localhost:9200/_plugin/head
+ 
+
+å¦‚æ­¤ï¼Œå®ŒæˆE.Sæ•°æ®åŒºåœ¨windowsä¸Šçš„å¯åŠ¨ã€‚
