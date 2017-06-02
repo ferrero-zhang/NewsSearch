@@ -7,4 +7,4 @@ MBA课程体验教学：使用Scrapy框架去抓取新闻网站，使用Elastics
 * 第二部分是建立相应的新闻搜索引擎，提供搜索，在News_Index文件夹中
 * 第三部分是对新闻的文本进行聚类主题发现以及实体的新闻极性分析，在News_Analysis文件夹中
 
-**本项目基于https://github.com/liuguiyangnwpu/NewsSearch项目进行更改，[爬虫相关详细内容请看个人博客！](http://blog.csdn.net/berguiliu/article/details/50459606)**
+**本项目基于https://github.com/liuguiyangnwpu/NewsSearch 项目进行更改，[爬虫相关详细内容请看个人博客！](http://blog.csdn.net/berguiliu/article/details/50459606)**
