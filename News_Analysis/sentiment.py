@@ -77,7 +77,46 @@ if __name__ == '__main__':
 
     fw1.close()
 
+    target_entity = "I-PER寅"
+    vis_data = []
+
     fw = open("./sentiment/entity_sentiment.txt", "w")
     for ent, sent in entity_sentiment_dict.iteritems():
+    	if ent == target_entity:
+    		vis_data = sent
     	fw.write("%s\t%s\n" % (ent, sent))
     fw.close()
+    
+    # 合并相同的日期
+    vis_data_dict = dict()
+    for d in vis_data:
+    	try:
+            vis_data_dict[d[0]].append([d[1], d[2]])
+        except KeyError:
+        	vis_data_dict[d[0]] = [[d[1], d[2]]]
+
+    vis_data_final = []
+    for k, v in vis_data_dict.iteritems():
+    	finalv = [k]
+    	for v_ in zip(*v):
+            finalv.append(float(sum(v_)) / len(v_))
+        vis_data_final.append(finalv)
+
+    sorted_data = sorted(vis_data_final, key=lambda (k1, k2, k3): k1, reverse=False)
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from pylab import *  
+    mpl.rcParams[u'font.sans-serif'] = ['YouYuan']
+
+    x_names = [k1 for k1, k2, k3 in sorted_data]
+    x = np.arange(len(x_names))
+    y1 = [k2 for k1, k2, k3 in sorted_data]
+    y2 = [k3 for k1, k2, k3 in sorted_data]
+
+    fig, ax = plt.subplots()
+    line1, = ax.plot(x, y1, label='positive sentiment')
+    line2, = ax.plot(x, y2, label='negative sentiment')
+    ax.set_xticklabels(x_names)
+    ax.legend(loc='up left')
+    ax.set_title(target_entity)
+    plt.show()
