@@ -3,3 +3,4 @@ install/*.whl
 install/*.exe
 install/*.msi
 install/*.zip
+install/polyglot_data/*

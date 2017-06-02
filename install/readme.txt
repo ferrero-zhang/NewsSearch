@@ -13,7 +13,7 @@
 
 (5)（可选）必要时安装Anaconda（该安装包将python和许多常用的package如numpy科学计算包等打包，方便python初学者直接使用），双击Anaconda2-4.4.0-Windows-x86_64.exe即可安装
 
-2、执行install.bat，安装完polyglot之后需要把C:\Python27\Lib\site-packages\polyglot\downloader.py中261行前加入path.sep = "/"，保存即可，安装完毕
+2、执行install.bat，安装完polyglot之后需要把C:\Python27\Lib\site-packages\polyglot\downloader.py中261行前加入path.sep = "/"，保存，把polyglot_data拷贝到C:\Users\***\AppData\Roaming目录下，安装完毕
 
 3、运行News_Scrapy文件夹下的crawl_news.bat，抓取163网易新闻数据，大概需要运行二十分钟
 
