@@ -1,0 +1,39 @@
+先期准备：
+E.S数据库的安装使用依赖于Java，所以准备的内容包括：
+E.S安装包：下载zip文件包，https://www.elastic.co/downloads/past-releases/elasticsearch-2-3-3；
+E.S的Python接口：pip install elasticsearch，https://pypi.python.org/pypi/elasticsearch/5.4.0；
+Java：要求1.8，在Oracle官网下载安装即可，教程百度里有，需要配置java_home和path的系统变量；
+head插件：数据库可视化插件。
+
+安装流程：
+1、	检测Java版本
+在cmd里输入 java –version，出现相应信息即可，图中Java版本为1.8.
+ 
+
+2. 解压elasticsearch数据库到任何一个路径
+
+3. 修改config文件
+进入elasticsearch-2.3.3/config里，修改elasticsearch.yml文件
+cluster.name: 集群名称，可修改为任意英文名称
+node.name：当前节点名称，可修改为任意英文名称
+bootstrap.mlockall: true 
+network.host: 127.0.0.1
+http.port: 9200
+discovery.zen.minimum_master_nodes: 1
+
+修改保存后退出。
+
+4. 启动E.S数据库
+进入elasticsearch-2.3.3/bin中，执行elasticsearch.bat文件，启动E.S。如图所示。
+ 
+
+打开浏览器，输入 http://localhost:9200，出现以下页面即可。
+ 
+5．安装E.S的图形化界面
+打开Windows的cmd命令行窗口，进入elasticsearch-2.3.3/bin路径下，执行plugin install mobz/elasticsearch-head，出现如下所示。
+ 
+
+在浏览器中输入网址：http://localhost:9200/_plugin/head
+ 
+
+如此，完成E.S数据区在windows上的启动。
