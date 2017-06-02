@@ -1,0 +1,5 @@
+安装polyglot
+
+1. 下载http://www.lfd.uci.edu/~gohlke/pythonlibs/#pycld2，并进行pip install
+2. 下载http://www.lfd.uci.edu/~gohlke/pythonlibs/#pyicu，并进行pip install
+3. pip install polyglot

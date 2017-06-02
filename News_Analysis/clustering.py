@@ -238,7 +238,7 @@ def output_docs_cluster(doc_cluster, features):
         fw_content += '聚簇' + str(cluster_idx) + ':  (' + features.get(k, "") + ')  比例：'+str(round(clu_ratio, 4))+'\n'
 
         for doc in docs:
-            fw_content += '      【' + doc["news_title"].replace("\n", "") + '】' + doc["news_content"].replace("\n", "") + '\n'
+            fw_content += '\t' + doc["news_date"] + 'datetextsplit【' + doc["news_title"].replace("\n", "") + '】' + doc["news_content"].replace("\n", "") + '\n'
         fw_content += '\n\n'
         cluster_idx += 1
 
