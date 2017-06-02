@@ -12,15 +12,16 @@ for line in f:
     print "---------------"
     print item.keys()
     try:
-    	url = item["news_url"]
-    	title = item["news_title"]
-        content = item["news_content"]
-        source = item["news_source"]
-        date = item["news_date"]
-        news_key = item["news_key"]
-        print url, title, content, source, date, news_key
+    	url = item["news_url"] # 新闻URL
+    	title = item["news_title"] # 新闻标题
+        content = item["news_content"] # 新闻内容
+        source = item["news_source"] # 新闻来源
+        date = item["news_date"] # 日期
+        print url, title, content, source, date
         count += 1
         print count
     except:
-    	pass
+    	continue
+
+    # 建索引的代码从这里开始写
 f.close()
