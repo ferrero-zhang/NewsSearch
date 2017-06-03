@@ -23,9 +23,17 @@ print downloader.download("embeddings2.zh")
 print downloader.download("embeddings2.en")
 
 if __name__ == '__main__':
+    #----------------可调参数开始--------------#
+    # 待提取实体的子话题文本
+    sentiment_input_filename = "./sentiment/sentiment_input.txt"
+
+    # 待分析的实体
+    target_entity = "I-PER寅"
+    #----------------可调参数结束--------------#
+
     # 加载一个子话题的数据
     news_items = []
-    f = open("./sentiment/sentiment_input.txt")
+    f = open(sentiment_input_filename)
     for line in f:
         item = dict()
         data = line.strip().split("datetextsplit")
@@ -77,7 +85,6 @@ if __name__ == '__main__':
 
     fw1.close()
 
-    target_entity = "I-PER寅"
     vis_data = []
 
     fw = open("./sentiment/entity_sentiment.txt", "w")
