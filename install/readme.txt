@@ -3,7 +3,7 @@
 
 1. Python
 
-(1)双击python-2.7.11.amd64.msi，即可安装
+(1)双击python-2.7.13.msi，即可安装
 
 (2)安装完成之后在计算机系统属性中加入python可执行路径，将C:\Python27和C:\Python27\Scripts加入系统PATH变量中，加入过程可参考https://jingyan.baidu.com/article/48206aeafdcf2a216ad6b316.html
 
